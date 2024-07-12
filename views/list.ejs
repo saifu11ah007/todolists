@@ -1,0 +1,64 @@
+<%- include('header'); -%>
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">TODO-list</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="btn navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="nav-shirts" aria-current="page" href="/work">Work</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/food">Food</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="vh-100" style="background-color: #e2d5de;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body p-5">
+            <h1 class="mb-3"><%= KindOfday %></h1>
+            <h6 class="mb-3">Awesome Todo List</h6>
+
+            <form class="d-flex justify-content-center align-items-center mb-4" action="/" method="post">
+              <div data-mdb-input-init class="form-outline flex-fill">
+                <input id="form3" type="text" name="newItem" class="form-control form-control-lg" />
+                <label class="form-label" for="form3">What do you need to do today?</label>
+              </div>
+              <button type="submit" name="button" value="<%= buttonTitle %>" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ms-2">Add</button>
+            </form>
+
+            <form action="/delete" method="post">
+              <ul class="list-group mb-0">
+                <% Addnews.forEach(function(item){ %>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <input type="checkbox" name="checkboxes" value="<%= item._id %>">
+                    <p><%= item.name %></p>
+                  </li>
+                <% }) %>
+              </ul>
+              <input type="hidden" name="listname" value="<%= buttonTitle %>">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ms-2 mt-3">Delete</button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('footer'); -%>
