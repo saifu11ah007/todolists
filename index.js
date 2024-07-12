@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const app = express();
-
-mongoose.connect("mongodb+srv://saifullah22044:Test123@cluster0.svl6zpm.mongodb.net/todolist");
+const mongoUri = process.env.MONGODB_URI || "mongodb+srv://saifullah22044:Test123@cluster0.svl6zpm.mongodb.net/todolist";
+mongoose.connect(mongoUri);
 
 const listSchema = new mongoose.Schema({ name: String });
 const itemSchema = new mongoose.Schema({
@@ -127,7 +127,7 @@ app.post('/delete', function (req, res) {
       });
   }
 });
-
-app.listen(3000, function () {
-  console.log("Server has started on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Server has started on port " + port);
 });
