@@ -6,7 +6,7 @@ const app = express();
 
 // Environment Variables
 const mongoUri = process.env.MONGODB_URI || "mongodb+srv://saifullah22044:Test123@cluster0.svl6zpm.mongodb.net/todolist";
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Connect to MongoDB
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
