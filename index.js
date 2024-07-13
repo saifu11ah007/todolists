@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 
 // Environment Variables
-const mongoUri = process.env.MONGODB_URI || "mongodb+srv://saifullah22044:Test123@cluster0.svl6zpm.mongodb.net/todolist";
+const mongoUri = process.env.MONGODB_URI;
 const port = process.env.PORT || 3000;
 
 // Connect to MongoDB
@@ -28,6 +29,11 @@ const item3 = new List({ name: "by" });
 const defaultItems = [item1, item2, item3];
 
 // Middleware and Settings
+app.use(cors({
+  origin: "https://hotel-backend-xi.vercel.app",
+  methods: ["POST", "GET", "DELETE", "PUT"],
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
