@@ -29,6 +29,13 @@ const item3 = new List({ name: "by" });
 const defaultItems = [item1, item2, item3];
 
 // Middleware and Settings
+app.opytions("", cors(
+  {
+    origin: "*",
+    methods: ["POST", "GET", "DELETE", "PUT"],
+    credentials: true
+  }
+));
 app.use(cors(
   {
     origin: "*",
