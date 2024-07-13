@@ -1,13 +1,13 @@
 {
   "name": "ejs",
   "version": "1.0.0",
+  "description": "A Node.js application with EJS, Express, and MongoDB",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "author": "SU",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
